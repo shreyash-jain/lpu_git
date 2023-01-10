@@ -1,7 +1,3 @@
-
-// my first change
-
-// my second changes
-
-
-//
+main() {
+  print("hello");
+}
