@@ -10,5 +10,4 @@ main() {
 //9
 
 
-
-// hritik changes 
+//merge conflict
