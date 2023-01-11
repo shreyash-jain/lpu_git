@@ -1,75 +1,67 @@
 main() {
-  var myNumber = 9;
+  print(makeFullNamePro("Jain", "Shreyash"));
 
-  String myString = "Hello";
+  print(makeFullNameNamedArgsNew("Mr.",
+      middleName: "Shreyash", lastName: "Jain"));
 
-  String yourString = "Cello";
-
-  String newString = myString + yourString;
-
-  int myNewNum = 8;
-
-  String newStringPro = "${myNewNum.isEven} $yourString";
-
-  String foodPrice = "50";
-  String foodPriceDouble = "50.5";
-
-  int convertedFoodPrice = int.parse(foodPrice);
-
-  double convertedFoodPriceDouble = double.parse(foodPriceDouble);
-
-  String boolStr = "true";
-
-  bool myBool = (boolStr == "true") ? true : false;
-
-  int myNewInt = 6;
-
-  String myNewIntStr = myNewInt.toString();
-
-  print(myNewIntStr.runtimeType);
-
-  if (boolStr == "true") {
-    // do something
-  } else if (boolStr == "false") {
-  } else {}
-
-  String c = "Hell1o";
-
-  switch (c) {
-    case "Hello":
-      print(1.0);
-      break;
-    case "Yo":
-      print(2.0);
-      break;
+  List<String> myStrList = ["Cake", "Pastry", "Pasta", "Cake"];
+  List<int> lengths = [];
+  for (var i = 0; i < myStrList.length; i++) {
+    lengths.add(myStrList[i].length);
   }
+  print(lengths);
+  myStrList.add("Butter Masala");
+  myStrList.removeWhere((element) {
+    return (element == "Cake");
+  });
 
-  for (int i = 0; i < 10; i++) {
-    print(i);
-  }
+  myStrList.forEach((element) {
+    print(element);
+  });
 
-  int finalSum = giveRemainder(30, 3);
-  int a = 9;
-  print(a++);
-  print(a++);
-  print(++a);
+  List<int> updatedListLengths = myStrList.map((e) => e.length).toList();
+
+  String name = " shreyash   | jain";
+  String sortedName = name.trim();
+  List<String> splitString = name.split("|");
+  mySolution();
 }
 
-int giveRemainder(int a, int b) {
-  return a % b;
+// High Order Functions =
+
+// Low order Function =
+
+String makeFullName(String firstName, String lastName) {
+  return "$firstName $lastName";
 }
 
+String makeFullNamePro(String firstName, String lastName) =>
+    "$firstName $lastName";
 
+String makeFullNameNamedArgs({String? firstName, String? lastName = "Chef"}) =>
+    "$firstName $lastName";
 
+String makeFullNameNamedArgsNew(String? firstName,
+        {String? middleName, String? lastName = "Chef"}) =>
+    "$firstName $middleName $lastName";
 
+// List<String> strList = ["foodname | foodprice", ""]
+List<String> strList = ["Pasta | 40.5", "Pizza | 700", "Macroni | 67.5"];
+// print
+// put a discount of 20% for each food item
 
-//1
+// foodname1 is of foodcost1, and discounted amount is discountedamount1
+// foodname2 is of foodcost2, and discounted amount is discountedamount1
 
+void mySolution() {
+  List<String> strList = ["Pasta | 40.5 ", "Pizza | 700", "Macroni | 67.5"];
 
-//7
-//8
-//9
+  List<String> myAns = strList.map((e) {
+    String name = e.split(" | ")[0].trim();
+    double price = double.parse(e.split(" | ")[1].trim());
+    double discountedPrice = 0.8 * price;
+    return ("$name is of $price and the discounted amount is $discountedPrice");
+  }).toList();
 
-
-
-// hrithik changes 
+  print(myAns);
+}
