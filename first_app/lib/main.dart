@@ -3,18 +3,22 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text("My App")),
-        body: Center(
-          child: Text(
-            "Blood Bank App",
-            style: TextStyle(
-              // color: Colors.red,
-              color: Color(0xffFFFEFE),
-            ),
-          ),
-        ),
-      ),
+      home: MyApp(),
     ),
   );
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("My First App")),
+      body: Container(
+        color: Colors.orange,
+        margin: EdgeInsets.only(top: 20.0),
+      ),
+    );
+  }
 }
