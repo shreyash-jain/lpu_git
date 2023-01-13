@@ -1,67 +1,27 @@
 main() {
-  print(makeFullNamePro("Jain", "Shreyash"));
+  printChefsName(getChefFromDb, 4);
 
-  print(makeFullNameNamedArgsNew("Mr.",
-      middleName: "Shreyash", lastName: "Jain"));
+  int name;
 
-  List<String> myStrList = ["Cake", "Pastry", "Pasta", "Cake"];
-  List<int> lengths = [];
-  for (var i = 0; i < myStrList.length; i++) {
-    lengths.add(myStrList[i].length);
+}
+
+void printChefsName(String Function(int id) getChefFromDb, int id) {
+  String name = getChefFromDb(id);
+  print(name);
+}
+
+String getChefFromDb(int id) {
+  switch (id) {
+    case 1:
+      return "Shreyash";
+      break;
+    case 2:
+      return "Krishna";
+      break;
+    case 3:
+      return "Aarya";
+      break;
+    default:
+      return "No name found";
   }
-  print(lengths);
-  myStrList.add("Butter Masala");
-  myStrList.removeWhere((element) {
-    return (element == "Cake");
-  });
-
-  myStrList.forEach((element) {
-    print(element);
-  });
-
-  List<int> updatedListLengths = myStrList.map((e) => e.length).toList();
-
-  String name = " shreyash   | jain";
-  String sortedName = name.trim();
-  List<String> splitString = name.split("|");
-  mySolution();
-}
-
-// High Order Functions =
-
-// Low order Function =
-
-String makeFullName(String firstName, String lastName) {
-  return "$firstName $lastName";
-}
-
-String makeFullNamePro(String firstName, String lastName) =>
-    "$firstName $lastName";
-
-String makeFullNameNamedArgs({String? firstName, String? lastName = "Chef"}) =>
-    "$firstName $lastName";
-
-String makeFullNameNamedArgsNew(String? firstName,
-        {String? middleName, String? lastName = "Chef"}) =>
-    "$firstName $middleName $lastName";
-
-// List<String> strList = ["foodname | foodprice", ""]
-List<String> strList = ["Pasta | 40.5", "Pizza | 700", "Macroni | 67.5"];
-// print
-// put a discount of 20% for each food item
-
-// foodname1 is of foodcost1, and discounted amount is discountedamount1
-// foodname2 is of foodcost2, and discounted amount is discountedamount1
-
-void mySolution() {
-  List<String> strList = ["Pasta | 40.5 ", "Pizza | 700", "Macroni | 67.5"];
-
-  List<String> myAns = strList.map((e) {
-    String name = e.split(" | ")[0].trim();
-    double price = double.parse(e.split(" | ")[1].trim());
-    double discountedPrice = 0.8 * price;
-    return ("$name is of $price and the discounted amount is $discountedPrice");
-  }).toList();
-
-  print(myAns);
 }
