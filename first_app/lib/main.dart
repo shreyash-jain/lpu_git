@@ -15,9 +15,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("My First App")),
-      body: Container(
-        color: Colors.orange,
-        margin: EdgeInsets.only(top: 20.0),
+      body: Center(
+        child: Container(
+          color: Colors.blue,
+          child: Container(
+            color: Colors.orange,
+            margin: EdgeInsets.all(20.0),
+            child: Text("Hello World"),
+          ),
+        ),
       ),
     );
   }
